@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Leave Types{% endblock %}
+{% block content %}
+<h1>Leave types</h1>
+<a href="{{ url_for('add_leave_type') }}">Add leave type</a>
+{% if leave_types %}
+<table><tr><th>Name</th><th>Days allowed</th><th>Description</th><th>Action</th></tr>
+{% for item in leave_types %}
+<tr><td>{{ item.name }}</td><td>{{ item.days_allowed }}</td><td>{{ item.description }}</td><td><form method="post" action="{{ url_for('delete_leave_type', leave_type_id=item.id) }}"><button>Delete</button></form></td></tr>
+{% endfor %}</table>
+{% else %}<p>No leave types.</p>{% endif %}
+{% endblock %}

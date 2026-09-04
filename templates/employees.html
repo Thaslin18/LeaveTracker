@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Employees{% endblock %}
+{% block content %}
+<h1>Employees</h1>
+<a href="{{ url_for('add_employee') }}">Add employee</a>
+{% if employees %}
+<table><tr><th>Name</th><th>Email</th><th>Department</th><th>Action</th></tr>
+{% for employee in employees %}
+<tr><td>{{ employee.name }}</td><td>{{ employee.email }}</td><td>{{ employee.department }}</td><td><form method="post" action="{{ url_for('delete_employee', employee_id=employee.id) }}"><button>Delete</button></form></td></tr>
+{% endfor %}</table>
+{% else %}<p>No employees.</p>{% endif %}
+{% endblock %}

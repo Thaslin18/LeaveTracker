@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Add Leave Request{% endblock %}
+{% block content %}
+<h1>Add leave request</h1>
+<form method="post">
+<label>Employee
+<select name="employee_id" required>{% for employee in employees %}<option value="{{ employee.id }}">{{ employee.name }}</option>{% endfor %}</select>
+</label>
+<label>Leave type
+<select name="leave_type_id" required>{% for item in leave_types %}<option value="{{ item.id }}">{{ item.name }}</option>{% endfor %}</select>
+</label>
+<label>Leave date <input name="leave_date" type="date" required></label>
+<button>Save</button>
+</form>
+{% endblock %}

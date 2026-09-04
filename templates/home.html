@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="home-container">
+    <p class="subtitle">Select a module to manage your organization:</p>
+    
+    <div class="module-buttons">
+        <a href="{{ url_for('employees') }}" class="module-btn">
+            <span class="btn-icon">👥</span> Employees
+        </a>
+        <a href="{{ url_for('leave_types') }}" class="module-btn">
+            <span class="btn-icon">📋</span> Leave Types
+        </a>
+        <a href="{{ url_for('leave_requests') }}" class="module-btn">
+            <span class="btn-icon">⏳</span> Leave Requests
+        </a>
+    </div>
+</div>
+{% endblock %}
